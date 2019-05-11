@@ -1,0 +1,29 @@
+{
+  "name": "app-web-solo-javascript",
+  "version": "1.0.0",
+  "description": "Pactica y muestra para nuevos interesados en el desarrollas un ejemplo completo de implementacion de java script para realizar un aapp con fontend backend y una api todo en uno :D",
+  "main": "index.js",
+  "scripts": {
+    "test": "testrun"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Necrowolf132/app-web-solo-javascript.git"
+  },
+  "keywords": [
+    "practica",
+    "javascript",
+    "node",
+    "rest",
+    "api",
+    "todo",
+    "en",
+    "uno"
+  ],
+  "author": "Necrowolf (jese brito)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Necrowolf132/app-web-solo-javascript/issues"
+  },
+  "homepage": "https://github.com/Necrowolf132/app-web-solo-javascript#readme"
+}
