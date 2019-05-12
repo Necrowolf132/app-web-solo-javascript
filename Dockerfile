@@ -8,8 +8,4 @@ COPY . /home/app-web-javascript-build
 
 RUN npm install
 
-EXPOSE 80
-EXPOSE 8080
-EXPOSE 27017
-
-ENTRYPOINT [ "/bin/bash" ]
+CMD [ "node","Backend/app-back.js" ]

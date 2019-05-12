@@ -18,7 +18,7 @@ const almacen = archivador.diskStorage({
 
 // parametros de configuracion del servidor
 
-myapp.set('port', 8080)
+myapp.set('port', process.env.PORT || 8080)
 
 // middlewares
 myapp.use(archivador(almacen).single('img')) // implmentanndo archivador de imagenes
