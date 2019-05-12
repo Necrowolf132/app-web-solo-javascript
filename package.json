@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon Backend/app-back.js",
     "dev-docker-build" : "",
-    "dev-docker" : ""
+    "dev-docker" : "",
+    "start": "node Backend/app-back.js"
   },
   "repository": {
     "type": "git",

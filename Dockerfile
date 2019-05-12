@@ -1,11 +1,8 @@
-FROM necrowolf132/app-web-javascript:1.0
-
-WORKDIR /home/app-web-javascript-build
-
-RUN rm -R * 
-
-COPY . /home/app-web-javascript-build
-
-RUN npm install
-
-CMD [ "node","Backend/app-back.js" ]
+FROM node:10.15.0-alpine
+WORKDIR /app
+COPY . /app
+RUN npm install -g eslint standard 
+# EXPOSE 3000
+RUN adduser -D myuser
+USER myuser
+CMD ["npm", "run", "start"]
