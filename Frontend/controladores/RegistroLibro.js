@@ -1,8 +1,6 @@
-import  EnvioLibros  from './../servicios/librosServicios'
 
-export function RegistroLibro (event) {
+export function RegistroLibro (event, UI) {
   event.preventDefault()
-  const enviador = new EnvioLibros()
   const titulo = document.getElementById('titulo')
   const autor = document.getElementById('autor')
   const isbn = document.getElementById('isbn')
@@ -18,12 +16,6 @@ export function RegistroLibro (event) {
   formularioLibro.append('titulo', myObjetEnvio.titulo)
   formularioLibro.append('autor', myObjetEnvio.autor)
   formularioLibro.append('isbn', myObjetEnvio.isbn)
-  
-  enviador.guardarLibro(formularioLibro).then(
-    (retorno) => {
-      console.log(retorno)
-    }
-  ).catch(() => {
-    console.log('Error del lado delcliente')
-  })
+
+  UI.AgregarLibro(formularioLibro)
 }
