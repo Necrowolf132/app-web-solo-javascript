@@ -1,4 +1,5 @@
 import EnvioLibros from './../servicios/librosServicios'
+import  {format}   from 'timeago.js'
 
 class IU {
   constructor () {
@@ -24,17 +25,25 @@ class IU {
     LibosGet.forEach(libro => {
       const DIV = document.createElement('div')
       DIV.className = ''
-      DIV.innerHTML = 
+      DIV.innerHTML =` 
         <div class="card m-2 ">
             <div class="row">
                <div class="col-md-4">
-                  <img src="$(libro.)">
-               </div>
+                  <img src="${libro.image}" class="img-fluid" />
+               </div> 
                <div class="col-md-8">
+                  <div class="card-block px-2">
+                  <h4 class="card-title">${libro.titulo}</h4>
+                  <p class="card-text">${libro.autor}</p>
+                  <a href="#" class="btn btn-danger delete" _id="${libro._id}">Borrar</a>
+                  </div> 
               </div>
+            </div>
+            <div class="card-footer">
+               ${format(libro.dato_creado)}
             </div> 
-        </div>
-      
+        </div>`;
+        mostrarLibrocontainer.appendChild(DIV)      
     })
   }
 
