@@ -1,0 +1,22 @@
+body {
+    background-color: #3e2b3e;
+    overflow-x: hidden;
+}
+.navbar {
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;  
+}
+.texto-principal {
+    font-weight: 600;
+    color: #ed10ef;
+}
+.homo {
+    color:red ; 
+}
+#Mostrar-Libro {
+ transition: all ease-in 1000ms
+} 
+h3 {
+    font-weight: 600;
+    font-size: 1.3rem;
+}

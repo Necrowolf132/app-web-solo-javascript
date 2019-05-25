@@ -1,5 +1,8 @@
-FROM necrowolf132/web-heroku-node-mongo:1.1
+FROM 
 WORKDIR /app
 COPY . /app
+# EXPOSE 3000
 RUN ["npm", "install"]
+RUN adduser -D myuser
+USER myuser
 CMD ["npm", "run", "start"]
