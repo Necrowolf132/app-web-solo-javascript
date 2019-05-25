@@ -3,6 +3,8 @@ const modelosLibros = require('../models/libros')
 const MyStorage = require('../Uploator')
 const loguer = require('../loguer')
 var multer = require('multer')
+const {unlink} = require('fs-extra')
+const patch = require('path')
 
 
 var  ObjetoEnvio = {
@@ -16,7 +18,7 @@ rutas.use(MyStorage)
 rutas.use( async (error, req, resp, next) => {
   if (error instanceof multer.MulterError && error.message == 'File too large') {
     loguer.MyLog.logError(error)
-    ObjetoEnvio.status = 'Imagen muy pesado'
+    ObjetoEnvio.status = 'Imagen muy pesada'
     ObjetoEnvio.estatusNum = 3
     ObjetoEnvio.datoEnviados = []
     resp.status(503).json(ObjetoEnvio).send()    
@@ -35,7 +37,7 @@ rutas.use( async (error, req, resp, next) => {
 
 rutas.get('/', async (res, rep) => {
   try {
-    const retorno  =  await  modelosLibros.find()
+    const retorno  =  await  modelosLibros.find().sort({dato_creado: 'desc'})
     ObjetoEnvio.datoEnviados = retorno
     ObjetoEnvio.status = 'ok'
     ObjetoEnvio.estatusNum = 1
@@ -71,7 +73,8 @@ rutas.post('/', async (res, rep) => {
 rutas.delete('/:id', async (res, rep) => {
   try {
     const retorno = await  modelosLibros.findByIdAndDelete(res.params.id);
-    ObjetoEnvio.datoEnviados = retorno
+    unlink(patch.resolve('./Backend/public/' + retorno.image))
+      ObjetoEnvio.datoEnviados = retorno
     ObjetoEnvio.status = 'ok'
     ObjetoEnvio.estatusNum = 1 
   } catch { 

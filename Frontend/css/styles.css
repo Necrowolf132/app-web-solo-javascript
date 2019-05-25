@@ -1,5 +1,6 @@
 body {
-    background-color: #9f18a0;
+    background-color: #3e2b3e;
+    overflow-x: hidden;
 }
 .navbar {
     border-bottom-left-radius: 100px;
@@ -7,8 +8,15 @@ body {
 }
 .texto-principal {
     font-weight: 600;
-    color: black;
+    color: #ed10ef;
 }
 .homo {
     color:red ; 
+}
+#Mostrar-Libro {
+ transition: all ease-in 1000ms
+} 
+h3 {
+    font-weight: 600;
+    font-size: 1.3rem;
 }
