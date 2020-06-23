@@ -1,8 +1,16 @@
-FROM necrowolf132/web-heroku-node-mongo:1.1
-WORKDIR /opt
-COPY . /opt
-RUN '/iniciadormongo start'
-RUN 'mongorestore --dir mongoData/ -u "root" -p "25448132" --authenticationDatabase admin'
-RUN ["npm", "install"]
+FROM node:12
+
+WORKDIR /app
+COPY package*.json ./
+COPY nodeinstall.sh ./
+RUN ./nodeinstall.sh
+
+# Or if you're using Yarn
+# ADD package.json yarn.lock /app/
+# RUN yarn install
+#COPY /app/
+ENV NODE_ENV=produccion
+EXPOSE 8080
+COPY . .
 RUN ["npm", "run" ,"compilar"]
 CMD ["npm", "run", "start"]

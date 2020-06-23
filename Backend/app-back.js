@@ -1,12 +1,15 @@
+const path = require('path');
 
 if (process.env.NODE_ENV == 'desarrollo') {
   require('dotenv').config()
+} else {
+  var myath = path.resolve(process.cwd(), '.env.product')
+  require('dotenv').config({ path:  myath })
 }
 
 const express = require('express')
 const loguer = require('./loguer')
 const CORS = require('cors')
-const path = require('path')
 const bodyParser = require('body-parser')
 const rutaLibros = require('./routes/literatura')
 const BaseDatos = require('./database')

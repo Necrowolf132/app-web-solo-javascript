@@ -1,7 +1,8 @@
 class EnvioLibros {
   constructor () {
-    if (process.env.NODE_ENV !== 'produccion') {
-      this.URI = 'http://localhost:3000/api/libros'
+    if (process.env.NODE_ENV != 'production') {
+      console.log(process.env.NODE_ENV)
+      this.URI = 'http://localhost:8080/api/libros'
     } else {
       this.URI = 'https://api-rest-docker.herokuapp.com/api/libros'
     }

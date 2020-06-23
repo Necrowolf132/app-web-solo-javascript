@@ -1,5 +1,5 @@
 .git
 node_modules
-Dockerfile
+Dockerfile-init
 .DS_Store
 .gitignore

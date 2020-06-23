@@ -1,0 +1,19 @@
+version: '3'
+services: 
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: faztapp1:prueba
+    ports:
+      - "80:8080"
+    depends_on:
+      - faztapp-mongodb
+
+  faztapp-mongodb:
+    build: 
+      context: ./mongo
+      dockerfile: Dockerfile
+    image: faztapp-mongo:prueba
+    ports:
+      - "27017:27017"

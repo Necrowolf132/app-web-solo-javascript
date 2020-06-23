@@ -1,0 +1,22 @@
+FROM node-mongo-base:prueba
+WORKDIR /opt
+COPY mongo/mongoData /opt/mongoData
+COPY mongo/mongod.conf /etc/mongod.conf
+COPY mongo/mongorun.sh /opt/mongoData/mongorun.sh
+RUN  /opt/mongoData/mongorun.sh
+WORKDIR /app
+COPY package*.json ./
+COPY nodeinstall.sh ./
+COPY start.sh ./
+RUN ./nodeinstall.sh
+
+# Or if you're using Yarn
+# ADD package.json yarn.lock /app/
+# RUN yarn install
+#COPY /app/
+ENV NODE_ENV=produccion
+EXPOSE 80
+COPY . .
+RUN ["npm", "run" ,"compilar"]
+RUN chmod +x start.sh
+CMD ["./start.sh"]
