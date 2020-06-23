@@ -42,7 +42,7 @@ rutas.get('/', async (res, rep) => {
     ObjetoEnvio.status = 'ok'
     ObjetoEnvio.estatusNum = 1
   } catch {
-    loguer.MyLog.logError('Error inisperado en la consulta api libros get') 
+    loguer.MyLog.logError('Error inesperado en la consulta api libros get') 
     ObjetoEnvio.status = 'error consulta'
     ObjetoEnvio.estatusNum = 2
   }
@@ -61,7 +61,7 @@ rutas.post('/', async (res, rep) => {
      ObjetoEnvio.status = 'ok'
      ObjetoEnvio.estatusNum = 1
   } catch {
-    loguer.MyLog.logError('Error inisperado en el guardado  api libros post')
+    loguer.MyLog.logError('Error inesperado en el guardado  api libros post')
     ObjetoEnvio.status = 'error guardado'
     ObjetoEnvio.estatusNum = 2
   }
@@ -78,7 +78,7 @@ rutas.delete('/:id', async (res, rep) => {
     ObjetoEnvio.status = 'ok'
     ObjetoEnvio.estatusNum = 1 
   } catch { 
-    loguer.MyLog.logError('Error inisperado en el dorrado  api libros Delete')
+    loguer.MyLog.logError('Error inesperado en el dorrado  api libros Delete')
     ObjetoEnvio.status = 'error dorrado'
     ObjetoEnvio.estatusNum = 2
   }
